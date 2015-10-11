@@ -11,7 +11,7 @@ def get_comment_counts(url):
 	"""
 	driver = webdriver.Firefox()
 	driver.get(url)
-	wait = WebDriverWait(driver, 10)
+	wait = WebDriverWait(driver, 30)
 	wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'fb_comments_count')))
 	
 	retrieved_counts = driver.find_elements(By.CLASS_NAME, 'fb_comments_count')
@@ -29,5 +29,5 @@ def get_comment_counts(url):
 	return counts_list 
 
 # Test individual page below
-# print comment_count('http://techcrunch.com/2015/10/08/')
+# print get_comment_counts('http://techcrunch.com/2015/10/08/')
 	

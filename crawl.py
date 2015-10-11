@@ -13,10 +13,10 @@ def start_crawler(the_date, end_date):
 		def process_url(url_ext):
 			print '=== process_url running with url_ext: ', url_ext
 			# Return 'soup' and store in 'page_data' used with below function
-			soup = get_page_data(url_ext)
+			soup, comment_counts_list = get_page_data(url_ext)
 			# Process page - return False if no more pages in pagination
 			# return new url and repeat if if more pages available
-			has_more_pages = process_page(soup) #, comment_counts_list)
+			has_more_pages = process_page(soup, comment_counts_list)
 			if has_more_pages:
 				print '=== has_more_pages at: ', has_more_pages
 				process_url(has_more_pages)
