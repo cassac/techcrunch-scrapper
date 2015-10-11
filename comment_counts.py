@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def comment_counts(url):
+def get_comment_counts(url):
 	"""
 	Retrieve the comment counts for all articles located on the page.
 	Selenium was used because comments are loaded dynamically after static
@@ -14,7 +14,7 @@ def comment_counts(url):
 	wait = WebDriverWait(driver, 10)
 	wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'fb_comments_count')))
 	
-	retrieved_counts = driver.find_elements(By.CLASS_NAME, "fb_comments_count")
+	retrieved_counts = driver.find_elements(By.CLASS_NAME, 'fb_comments_count')
 	
 	counts_list = []
 	
@@ -28,5 +28,6 @@ def comment_counts(url):
 	driver.quit()
 	return counts_list 
 
+# Test individual page below
 # print comment_count('http://techcrunch.com/2015/10/08/')
 	
