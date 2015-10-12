@@ -11,7 +11,7 @@ while not found_first_page:
 	url = base_url + date.strftime('%Y/%m/%d')
 	r = requests.get(url)
 	if r.status_code != 404:
-		print 'FOUND FIRST URL:', url
+		print 'FOUND FIRST VALID URL:', url
 		found_first_page = True
 	else:
 		print '404:', url

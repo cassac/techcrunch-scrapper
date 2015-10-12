@@ -20,11 +20,11 @@ def get_comment_counts(url):
 	
 	for count in retrieved_counts:
 		try:
-			counts_list.append(int(count.text))
+			counts_list.append(count.text)
 			# print count.text
 		except:
 			counts_list.append(None)
-			# print 'Count not retrived'
+			# print 'Count not retrieved'
 	driver.quit()
 	return counts_list 
 
